@@ -7,3 +7,5 @@ This repo contains all of my ([TurnerTastic](https://github.com/TurnerTastic1)) 
     rustrc main.rs  or   cargo build
     ./main               cargo run 
 
+### Swift -
+Run in xcode
