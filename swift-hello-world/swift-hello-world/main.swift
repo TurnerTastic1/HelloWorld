@@ -16,8 +16,67 @@ var optionalString: String? = "Temp"
 optionalString = "Optional Strings are cool"
 print(optionalString)
 
-func sum(param1: Int, param2: Int) -> Int {
-    return param1 + param2
+class Animal
+{
+   // Properties are declared like variables, but only exist within the class' context
+   var name = "Unknown Species"
+   var sound = "Silence"
+
+   // This is a basic initializer
+   init(name: String, sound: String)
+   {
+      self.name = name
+      self.sound = sound
+   }
+
+   func makeSound() -> String
+   {
+      return sound
+   }
 }
 
-print("The sum of 1 and 2 is \(sum(param1: 1, param2: 2))")
+var animal = Animal(name: "Dog", sound: "Bark")
+
+print(animal.makeSound())
+
+// This is how you define a subclass
+class Dog : Animal
+{
+   var breed = "Unknown"
+   let crySound: String = "Cry"
+
+   // Properties can also have getters and setters
+   var isCrying: Bool
+   {
+      get
+      {
+         // Notice that you can compare strings' content using ==
+         return sound == crySound
+      }
+      set
+      {
+         // The value received for the property is accessed using 'newValue'
+         if newValue == true
+         {
+            sound = crySound
+         }
+      }
+   }
+
+   init(breed: String)
+   {
+      self.breed = breed
+       super.init(name: "Dog", sound: "Bark")
+   }
+
+   func goFetch()
+   {
+      print("Fetch!")
+   }
+
+   // Use 'override' for methods that are also defined in the superclass
+   override func makeSound() -> String
+   {
+      return "Bark"
+   }
+}
